@@ -1,0 +1,24 @@
+<%- include("partials/header"); -%>
+<h1><%= title %></h1>
+<p>
+  <%= content %>
+  </p>
+  <% for(let i=0;i<titles.length;i++){ %>
+
+  <a style="text-decoration:none;color:black" href="/post/<%=titles[i]._id%>"><h1>  <%=titles[i].name%></h1></a>
+  <!-- <div style="width:100%;text-overflow:ellipse;overflow:hidden;white-space:nowrap"> -->
+    <%if (posts[i].content.length>=100){%>
+      <p>
+        <%=posts[i].content.slice(0,100)%> ...
+
+        <a href="/post/<%=titles[i]._id%>">read me</a>
+        </p>
+    <%}else{%>
+      <%=posts[i].content%>
+    <%}%>
+
+  <!-- </div> -->
+
+  <%}%>
+
+<%- include("partials/footer"); -%>
